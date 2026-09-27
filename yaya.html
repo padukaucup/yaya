@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maafin Aku Yaya</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(135deg, #f5ff9b, #ecff7e);
+            overflow: hidden;
+        }
+
+        /* Background hearts */
+        .heart {
+            position: fixed;
+            color: rgba(255, 105, 150, 0.25);
+            font-size: 25px;
+            animation: float 6s linear infinite;
+            bottom: -50px;
+        }
+
+        .heart:nth-child(1) { left: 10%; animation-delay: 0s; }
+        .heart:nth-child(2) { left: 30%; animation-delay: 2s; }
+        .heart:nth-child(3) { left: 55%; animation-delay: 1s; }
+        .heart:nth-child(4) { left: 75%; animation-delay: 3s; }
+        .heart:nth-child(5) { left: 90%; animation-delay: 4s; }
+
+        @keyframes float {
+            0% {
+                transform: translateY(0) rotate(0deg);
+                opacity: 0;
+            }
+            20% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-110vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        .container {
+            width: 90%;
+            max-width: 500px;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 45px 30px;
+            border-radius: 25px;
+            text-align: center;
+            box-shadow: 0 15px 40px rgba(180, 70, 110, 0.2);
+            position: relative;
+            z-index: 2;
+        }
+
+        .emoji {
+            font-size: 70px;
+            margin-bottom: 15px;
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        h1 {
+            color: #75c9fa;
+            font-size: 32px;
+            margin-bottom: 15px;
+        }
+
+        p {
+            color: #777;
+            font-size: 17px;
+            line-height: 1.6;
+            margin-bottom: 30px;
+        }
+
+        .buttons {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            min-height: 60px;
+        }
+
+        button {
+            border: none;
+            padding: 13px 30px;
+            border-radius: 30px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        #yesBtn {
+            background: #75c9fa;
+            color: white;
+            box-shadow: 0 5px 15px rgba(255, 111, 159, 0.3);
+        }
+
+        #yesBtn:hover {
+            transform: scale(1.08);
+            background: #f5ff9b;
+        }
+
+        #noBtn {
+            background: #eeeeee;
+            color: #666;
+            position: relative;
+        }
+
+        /* POPUP */
+        .popup {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.45);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 10;
+            padding: 20px;
+        }
+
+        .popup-content {
+            background: white;
+            width: 100%;
+            max-width: 420px;
+            padding: 40px 30px;
+            border-radius: 25px;
+            text-align: center;
+            animation: popup 0.4s ease;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+        }
+
+        @keyframes popup {
+            from {
+                transform: scale(0.5);
+                opacity: 0;
+            }
+            to {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        .popup-content .big-heart {
+            font-size: 65px;
+            margin-bottom: 15px;
+        }
+
+        .popup-content h2 {
+            color: #75c9fa;
+            margin-bottom: 15px;
+        }
+
+        .popup-content p {
+            color: #666;
+            margin-bottom: 25px;
+        }
+
+        #closeBtn {
+            background: #75c9fa;
+            color: white;
+        }
+
+        #closeBtn:hover {
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Background hearts -->
+    <div class="heart">♡</div>
+    <div class="heart">♥</div>
+    <div class="heart">♡</div>
+    <div class="heart">♥</div>
+    <div class="heart">♡</div>
+
+    <!-- MAIN -->
+    <div class="container">
+
+        <div class="emoji">🥺</div>
+
+        <h1>Maafin aku ya?</h1>
+
+        <p>
+            Aku tahu mungkin aku salah,<br>
+            tapi aku beneran nggak mau bikin kamu sedih.
+            <br><br>
+            Jadi... maafin aku ya? 💗
+        </p>
+
+        <div class="buttons">
+            <button id="yesBtn">YES 💗</button>
+            <button id="noBtn">NO 😒</button>
+        </div>
+
+    </div>
+
+    <!-- POPUP -->
+    <div class="popup" id="popup">
+
+        <div class="popup-content">
+
+            <div class="big-heart">💗</div>
+
+            <h2>Makasih udah maafin aku yaya</h2>
+
+            <p>
+                Maaf aku bikin yaya kesel, aku bikin yaya marah,
+                bikin yaya cemburu, aku salah. Aku kapok, Aku
+                gak mau dicuekin yaya lagi, aku gak mau dijauhin
+                kamu sayang.
+                <br><br>
+                Jangan marah lama-lama yaa.
+                Aku sayang kamu lebih dari yang bisa
+                aku jelasin lewat kata-kata. 
+                <br><br>
+                <b>I'm really sorry, and I love you. 💕</b>
+            </p>
+
+            <button id="closeBtn">Iya, aku maafin</button>
+
+        </div>
+
+    </div>
+
+
+    <script>
+
+        const noBtn = document.getElementById("noBtn");
+        const yesBtn = document.getElementById("yesBtn");
+        const popup = document.getElementById("popup");
+        const closeBtn = document.getElementById("closeBtn");
+
+        // Tombol NO menghindar saat didekati
+        noBtn.addEventListener("mouseover", moveButton);
+        noBtn.addEventListener("touchstart", moveButton);
+
+        function moveButton() {
+
+            const maxX = window.innerWidth - noBtn.offsetWidth - 20;
+            const maxY = window.innerHeight - noBtn.offsetHeight - 20;
+
+            const randomX = Math.random() * maxX;
+            const randomY = Math.random() * maxY;
+
+            noBtn.style.position = "fixed";
+            noBtn.style.left = randomX + "px";
+            noBtn.style.top = randomY + "px";
+        }
+
+        // YES → popup
+        yesBtn.addEventListener("click", function() {
+            popup.style.display = "flex";
+        });
+
+        // Tutup popup
+        closeBtn.addEventListener("click", function() {
+            popup.style.display = "none";
+        });
+
+        // Klik area luar popup
+        popup.addEventListener("click", function(e) {
+            if (e.target === popup) {
+                popup.style.display = "none";
+            }
+        });
+
+    </script>
+
+</body>
+</html>
